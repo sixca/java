@@ -3,8 +3,7 @@ package variable;
 public class P64 {
 
 	public static void main(String[] args) {
-		int a= 10;
-		int b =10;
+		int a= 10;		
 		double d = 10.2365;
 		String str1 = "abc";
 		String str2 = "abc";
