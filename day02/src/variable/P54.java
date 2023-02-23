@@ -11,7 +11,7 @@ public class P54 {
 		int a = 10;
 		long n2 = 20000000000000000L;		
 		
-		//정수
+		//실수
 		double d1 = 1.0;
 		float f1 = 1.0F;
 		
