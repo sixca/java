@@ -7,11 +7,11 @@ public class P54 {
 		boolean b1 = 10 > 5;
 		System.out.println(b1);
 		
-		// 정수
+		// 정수 :: 정수의 기본값은 int
 		int a = 10;
 		long n2 = 20000000000000000L;		
 		
-		//실수
+		//실수 :: 실수의 기본값은 double
 		double d1 = 1.0;
 		float f1 = 1.0F;
 		
