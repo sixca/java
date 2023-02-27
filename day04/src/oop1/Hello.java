@@ -1,4 +1,4 @@
-package day04;
+package oop1;
 
 public class Hello {
 
