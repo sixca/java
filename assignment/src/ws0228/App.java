@@ -1,6 +1,6 @@
 package ws0228;
 
-public class app {
+public class App {
 
 	public static void main(String[] args) {
 		// employee 5명, manager 5명 배열 지정
