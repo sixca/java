@@ -1,8 +1,8 @@
-package we0302;
+package ws0302;
 
 import java.util.Calendar;
 import java.util.Random;
-
+// accNum 자동추출
 public class MakeAccountNumber {
 	public static String makeAccNum() {
 		String accNum = "";

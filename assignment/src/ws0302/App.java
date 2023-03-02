@@ -1,4 +1,4 @@
-package we0302;
+package ws0302;
 
 public class App {
 
@@ -25,19 +25,19 @@ public class App {
 		System.out.println("[계좌정보 출력 case.1]");
 		for (int i = 0; i < arrAccount.length; i++) {
 			System.out.println(arrAccount[i].toString());
-		}
+		} // for문을 활용한 배열 출력
 		System.out.println("");
 		System.out.println("[계좌정보 출력 case.2]");
 		for (Account arr : arrAccount) {
 			System.out.println(arr);
-		}
+		} // for-each문을 활용한 배열 출력
 		System.out.println("");
 
 		System.out.println("[모든 계좌의 잔액과 현재 이자금액]");
 		for (Account arr : arrAccount) {
 			System.out.println("계좌번호" + arr.getAccNum() + "의 잔액은" + arr.getBalance() + "원, 현재 이자금액은"
 					+ Math.round(arr.getInterest()) + "원 입니다");
-		}
+		} // for-each문과 getter메서드로 계좌별 잔액과 이자금액 출력 
 		System.out.println("");
 		System.out.println("[모든 계좌의 잔액과 이자금액 합계]");
 		double sum = 0;
@@ -45,7 +45,7 @@ public class App {
 		for (int i = 0; i < arrAccount.length; i++) {
 			sum += arrAccount[i].getBalance();
 			interestSum += arrAccount[i].getInterest();
-		}
+		} // for문을 활용한 전체 계좌 잔액, 이자금액 합계 계산
 		System.out.printf("모든 계좌의 잔액 합계: %.1f원 \n", sum);
 		System.out.printf("모든 계좌의 이자금액 합계: %.1f원 \n", interestSum);
 
@@ -59,7 +59,7 @@ public class App {
 				vipSum += arrAccount[i].getBalance();
 				cnt++;
 			}
-		}
+		} // for문에서 if조건을 활용하여 "VIP" grade의 잔액 합계와 평균 계산
 		System.out.println("[VIP들의 잔액의 합과 평균]");
 		System.out.printf("VIP들의 잔액 합계는 %.1f원\n", vipSum);
 		avg = vipSum / cnt;

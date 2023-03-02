@@ -1,4 +1,4 @@
-package we0302;
+package ws0302;
 
 public class Account {
 	private String accNum;
@@ -7,9 +7,9 @@ public class Account {
 	private double rate;
 	private String grade;
 
-	public Account() {
+	public Account() { 
 		this.accNum = MakeAccountNumber.makeAccNum();
-	}
+	} //초기생성자
 
 	public Account(String accName, double balance, double rate, String grade) {
 		this();
@@ -69,7 +69,7 @@ public class Account {
 			return; // 종료
 		}
 		this.balance -= money;
-	}
+	}  //출금
 
 	public void deposit(double money) {
 		if (money <= 0) {
@@ -77,11 +77,11 @@ public class Account {
 			return;
 		}
 		this.balance += money;
-	}
+	} //입금
 
 	public double getInterest() {
 		return balance * (rate * 1.0);
-	}
+	} // 이자금액 계산
 
 	@Override
 	public String toString() {
