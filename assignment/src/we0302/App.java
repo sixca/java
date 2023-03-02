@@ -28,15 +28,15 @@ public class App {
 		}
 		System.out.println("");
 		System.out.println("[계좌정보 출력 case.2]");
-		for (Account a : arrAccount) {
-			System.out.println(a);
+		for (Account arr : arrAccount) {
+			System.out.println(arr);
 		}
 		System.out.println("");
 
 		System.out.println("[모든 계좌의 잔액과 현재 이자금액]");
-		for (Account a : arrAccount) {
-			System.out.println("계좌번호" + a.getAccNum() + "의 잔액은" + a.getBalance() + "원, 현재 이자금액은"
-					+ Math.round(a.getInterest()) + "원 입니다");
+		for (Account arr : arrAccount) {
+			System.out.println("계좌번호" + arr.getAccNum() + "의 잔액은" + arr.getBalance() + "원, 현재 이자금액은"
+					+ Math.round(arr.getInterest()) + "원 입니다");
 		}
 		System.out.println("");
 		System.out.println("[모든 계좌의 잔액과 이자금액 합계]");
@@ -61,8 +61,8 @@ public class App {
 			}
 		}
 		System.out.println("[VIP들의 잔액의 합과 평균]");
-		System.out.printf("VIP들의 잔액 합계는 %.1f원\n", (vipSum * 1.0));
+		System.out.printf("VIP들의 잔액 합계는 %.1f원\n", vipSum);
 		avg = vipSum / cnt;
-		System.out.printf("VIP들의 잔액 평균은 %.1f원", (avg * 1.0));
+		System.out.printf("VIP들의 잔액 평균은 %.1f원", avg);
 	}
 }
