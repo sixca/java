@@ -2,7 +2,7 @@ package oop3;
 
 import oop2.Employee;
 
-public class App {
+public class App2 {
 
 	public static void main(String[] args) {
 		Car car = new Car("BenzG63amg", "red", 1000, 50);
