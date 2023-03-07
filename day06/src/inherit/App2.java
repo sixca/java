@@ -5,7 +5,7 @@ public class App2 {
 
 		// Manager is a Employee
 		Employee e = new Manager("100", "james", 500, 50);
-//	Manager m = new Employee("100", "james", 550); 불가
+        //Manager m = new Employee("100", "james", 550); 불가
 
 		Employee ea[] = new Employee[5];
 		ea[0] = new Employee("100", "james", 500);
@@ -18,7 +18,7 @@ public class App2 {
 			System.out.println(em);
 			System.out.println(em.getAnnSalary());
 			//em은 Employee 타입으로 Sales 메서드를 가져올 수 없는 상황. 그러면 직접 끄집어내 줘야겠지.
-			if(em instanceof Sales) {
+			if(em instanceof Sales) {   //'재정의'를 통한 다형성(polymorphism)을 구현
 				Sales s = (Sales)em;
 				System.out.println(s.getIncentive());
 			}

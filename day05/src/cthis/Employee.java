@@ -59,7 +59,7 @@ public class Employee {
 		result = this.getAnnSalary() * 0.17;
 		return result;
 	}
-	@Override   //필드 초기화
+	@Override   //필드 초기화  :: 어떻게 배열할지.. 이 클래스에서는 출력 시 정보들을 이렇게 배열하겠다
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
 	}

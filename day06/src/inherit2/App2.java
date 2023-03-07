@@ -3,7 +3,7 @@ package inherit2;
 public class App2 {
 	public static void main(String[] args) {
 
-		// Manager is a Employee
+		// Manager is a Employee :: B는 A이다
 		Employee e = new Manager("100", "james", 500, 50);
 		//	Manager m = new Employee("100", "james", 550); 불가
 
