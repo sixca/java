@@ -5,7 +5,6 @@ import java.util.Scanner;
 import com.kbstar.dto.UserDTO;
 import com.kbstar.frame.SearchService;
 import com.kbstar.frame.Service;
-import com.kbstar.service.ItemService;
 import com.kbstar.service.UserService;
 
 public class App {
@@ -20,7 +19,7 @@ public class App {
 		// App 개발자들은 DAO 인터페이스만 보고 개발을 하겠지. 종속 클래스들은 볼 필요가 없음
 		Service<String, UserDTO> service = new UserService();  // search 기능을 interface에 넣으면 이렇게 선언하고 써야 
 		SearchService search = new UserService();   // 인터페이스를 따로 만들었으니 이렇게 기능을 사용할수도있음
-//		UserService service = new UserService();   // search 기능을 UserService에 넣으면 이렇게 선언하고 써야
+		//UserService service = new UserService();   // search 기능을 UserService에 넣으면 이렇게 선언하고 써야
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 			System.out.println("Input command(q,i,d,u,s)");

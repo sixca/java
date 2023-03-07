@@ -3,3 +3,4 @@ package com.kbstar.frame;
 public interface SearchService {
 	public void search();
 }
+//인터페이스에서는 선언만 해주고,,

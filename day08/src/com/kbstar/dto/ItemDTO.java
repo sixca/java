@@ -42,8 +42,6 @@ public class ItemDTO {
 	public String toString() {
 		return "ItemDTO [id=" + id + ", name=" + name + ", price=" + price + ", qt=" + qt + "]";
 	}
-	
-	
 }
 
 
