@@ -11,7 +11,9 @@ public class App2 {
 
 	public static void main(String[] args) throws Exception {
 
-		DAO<Integer, ItemDTO> itemDao = new ItemDAO(); // 받을 준비요
+		DAO<Integer, ItemDTO> itemDao = new ItemDAO(); 
+		// DAO인터페이스를 구현하는 ItemDAO클래스의 객체를 생성하고 itemDao변수에 할당.. 키는 Integer, 값은 ItemDTO를 사용하도록 구현됨
+		// itemDao변수로 DAO인터페이스의 메서드를 호출하지
 		Scanner sc = new Scanner(System.in);
 		while (true) {
 			System.out.println("Input command(q,i,d,u,s,sa)");
@@ -31,6 +33,7 @@ public class App2 {
 				ItemDTO item = new ItemDTO(id, name, price, qt);
 				try {
 					itemDao.insert(item);
+					System.out.println("Inserted..");
 				} catch (Exception e) {
 					System.out.println("같은 상품ID가 존재합니다");
 				}
@@ -39,6 +42,7 @@ public class App2 {
 				int id = Integer.parseInt(sc.next());
 				try {
 					itemDao.delete(id);
+					System.out.println("Deleted..");
 				} catch (Exception e) {
 					System.out.println("상품 id가 존재하지 않습니다");
 				}
@@ -54,6 +58,7 @@ public class App2 {
 				ItemDTO item = new ItemDTO(id, name, price, qt);
 				try {
 					itemDao.update(item);
+					System.out.println("Updated..");
 				} catch (Exception e) {
 					System.out.println("상품 id가 존재하지 않습니다");
 				}

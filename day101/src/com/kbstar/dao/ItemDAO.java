@@ -10,10 +10,10 @@ import com.kbstar.frame.DAO;
 
 public class ItemDAO implements DAO<Integer, ItemDTO> {
 
-	HashMap<String, ItemDTO> db = null;
+	HashMap<Integer, ItemDTO> db = null;
 	
 	public ItemDAO() {
-		db = new HashMap<String, ItemDTO>();
+		db = new HashMap<Integer, ItemDTO>();
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public class ItemDAO implements DAO<Integer, ItemDTO> {
 		if(db.containsKey(v.getId())) {
 			throw new Exception();
 		}
-		db.put(Integer.toString(v.getId()), v);		
+		db.put(v.getId(), v);		
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class ItemDAO implements DAO<Integer, ItemDTO> {
 		if(!db.containsKey(v.getId())) {
 			throw new Exception();
 		}
-		db.put(Integer.toString(v.getId()), v);
+		db.put(v.getId(), v);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class ItemDAO implements DAO<Integer, ItemDTO> {
 	
 	@Override
 	public ItemDTO select(Integer k) throws Exception {
-		if(db.containsKey(k)) {
+		if(!db.containsKey(k)) {
 			throw new Exception();
 		}
 		ItemDTO item = null;
@@ -57,6 +57,8 @@ public class ItemDAO implements DAO<Integer, ItemDTO> {
 		}
 		ArrayList<ItemDTO> list = new ArrayList<ItemDTO>();
 		Collection<ItemDTO> col = db.values();
+		//ArrayList 목록을 list변수로 생성하고
+		//db의 모든 값(value)들을 col변수로 컬렉션
 		for(ItemDTO u : col) {
 			list.add(u);
 		}
