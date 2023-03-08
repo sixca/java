@@ -10,7 +10,7 @@ import com.kbstar.frame.DAO;
 public class App2 {
 
 	public static void main(String[] args) throws Exception {
-
+ 
 		DAO<Integer, ItemDTO> itemDao = new ItemDAO(); 
 		// DAO인터페이스를 구현하는 ItemDAO클래스의 객체를 생성하고 itemDao변수에 할당.. 키는 Integer, 값은 ItemDTO를 사용하도록 구현됨
 		// itemDao변수로 DAO인터페이스의 메서드를 호출하지
