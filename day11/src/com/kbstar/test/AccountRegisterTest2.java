@@ -7,7 +7,7 @@ import com.kbstar.frame.CRUDService;
 import com.kbstar.frame.MakeAccountNumber;
 import com.kbstar.service.AccountService;
 
-public class AccountRegisterTest11 {
+public class AccountRegisterTest2 {
 
 	public static void main(String[] args) {
 		CRUDService<String, AccountDTO> service = new AccountService();

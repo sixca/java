@@ -26,12 +26,12 @@ public class TransactionService implements CRUDService<String, TransactionDTO>{
 
 	@Override
 	public void modify(TransactionDTO v) throws Exception {
-		transDao.update(v);	
+
 	}
 
 	@Override
 	public TransactionDTO get(String k) throws Exception {
-		TransactionDTO obj;
+		TransactionDTO obj = null;
 		obj = transDao.select(k);
 		return obj;
 	}

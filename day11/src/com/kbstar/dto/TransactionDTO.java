@@ -49,9 +49,12 @@ public class TransactionDTO {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+
 	@Override
 	public String toString() {
-		return "TransactionDTO [accNo=" + accNo + ", balance=" + balance + ", type=" + type + ", desc=" + desc + "]";
+		return "TransactionDTO [date=" + date + ", accNo=" + accNo + ", balance=" + balance + ", type=" + type
+				+ ", desc=" + desc + "]";
 	}
+	
 	
 }
