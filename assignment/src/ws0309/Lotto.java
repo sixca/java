@@ -27,7 +27,7 @@ public class Lotto {
 
 	public double getPrizeMoney() {
 		return prizeMoney;
-	} // 당첨금 불러오기
+	} // 총 상금 불러오기
 
 	///// 당첨번호와 당첨금 생성
 	public void makeWinningNumberMoney() {
