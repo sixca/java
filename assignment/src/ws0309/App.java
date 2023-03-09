@@ -12,7 +12,6 @@ public class App {
 		ArrayList<Integer> myNum = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("1~25 숫자를 3개 입력해주세요");
-
 		while (myNum.size() < 3) {
 			int a = 0;
 			System.out.println(myNum.size() + 1 + "번째 숫자 입력");
@@ -32,6 +31,7 @@ public class App {
 			}
 			myNum.add(a);
 		}
+		sc.close();
 
 		// 등수 체크
 		int grade = lotto.checkRanking(myNum);
@@ -43,7 +43,7 @@ public class App {
 		System.out.println("총 상금 :" + (int) lotto.getPrizeMoney() + "원");
 		System.out.println("당첨 번호 : " + lotto.getWinningNum());
 		System.out.println("나의 번호 : " + myNum);
-		//System.out.println("일치 횟수 matchCount는 가져올 수 없을까?");
+		// System.out.println("일치 횟수 matchCount는 가져올 수 없을까?");
 		System.out.println("등수 : " + grade + "등");
 		System.out.println("당첨금액 : " + myMoney + "원");
 	}
