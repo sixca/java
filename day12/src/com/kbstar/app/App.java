@@ -65,9 +65,9 @@ public class App {
 							System.out.println("Transaction...");
 							String sendAcc = sc.next();
 							String receiveAcc = sc.next();
-							String balance = sc.next();
+							double balance = Double.parseDouble(sc.next());
 							String desc = sc.next();
-							service.transaction(sendAcc, receiveAcc, 0, desc);
+							service.transaction(sendAcc, receiveAcc, balance, desc);
 							System.out.println("Transaction Completed...");
 						}else if(cmn.equals("a")) {  // 계좌목록
 							System.out.println("Select Account...");
