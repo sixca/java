@@ -1,4 +1,4 @@
-package com.kbstar.service;
+package com.kbstar.frame;
 
 import java.util.List;
 

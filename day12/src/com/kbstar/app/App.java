@@ -1,12 +1,13 @@
 package com.kbstar.app;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.kbstar.dto.AccountDTO;
 import com.kbstar.dto.TransactionDTO;
 import com.kbstar.dto.UserDTO;
+import com.kbstar.frame.BankService;
 import com.kbstar.frame.CRUDService;
-import com.kbstar.service.BankService;
 import com.kbstar.service.BankServiceImpl;
 import com.kbstar.service.UserService;
 
@@ -71,7 +72,11 @@ public class App {
 							System.out.println("Transaction Completed...");
 						}else if(cmn.equals("a")) {  // 계좌목록
 							System.out.println("Select Account...");
-							
+							List<AccountDTO> list = null;
+							service.getAllAccount(user.getId());
+							for(AccountDTO acc:list) {
+								System.out.println(acc);
+							}
 						}else if(cmn.equals("i")) {
 							System.out.println("User Info");
 							String rid = user.getId();
@@ -80,7 +85,12 @@ public class App {
 							System.out.println(ruser);
 						}else if(cmn.equals("tr")) {    // 내 계좌의 한 거래내역을 가져와라
 							System.out.println("Select Transaction...");
-							
+							String accNo = sc.next();
+							List<TransactionDTO> list = null;
+							service.getAllTransaction(accNo);
+							for (TransactionDTO tr:list) {
+								System.out.println(tr);
+							}
 						}
 					}
 				} catch (Exception e) {

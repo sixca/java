@@ -11,6 +11,7 @@ import com.kbstar.dao.UserDAO;
 import com.kbstar.dto.AccountDTO;
 import com.kbstar.dto.TransactionDTO;
 import com.kbstar.dto.UserDTO;
+import com.kbstar.frame.BankService;
 import com.kbstar.frame.DAO;
 import com.kbstar.frame.MakeAccountNumber;
 import com.kbstar.frame.Notification;
@@ -84,15 +85,15 @@ implements BankService<UserDTO, AccountDTO, TransactionDTO, String, String> {
 
 	@Override
 	public List<AccountDTO> getAllAccount(String k) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<AccountDTO> list = null;
+		list = accountDao.search(k);
+		return list;
+		//return accountDao.search(k);로 한줄로 끝 가능!
 	}
 
 	@Override
 	public List<TransactionDTO> getAllTransaction(String acc) throws Exception {
-		
-		
-		return null;
+		return TransactionDao.search(acc);
 	}
 
 	@Override
@@ -105,7 +106,7 @@ implements BankService<UserDTO, AccountDTO, TransactionDTO, String, String> {
 		acc.setBalance(abalance);
 		accountDao.update(acc);
 		// 거래 내역 추가
-		TransactionDTO tr = new TransactionDTO(MakeAccountNumber.makeTrNum(), sendAcc, balance, "0", desc);
+		TransactionDTO tr = new TransactionDTO(MakeAccountNumber.makeTrNum(), sendAcc, balance, "O", desc);
 		TransactionDao.insert(tr);
 		// 완료
 		String uid = acc.getHolder();

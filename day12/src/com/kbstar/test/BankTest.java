@@ -3,7 +3,7 @@ package com.kbstar.test;
 import com.kbstar.dto.AccountDTO;
 import com.kbstar.dto.TransactionDTO;
 import com.kbstar.dto.UserDTO;
-import com.kbstar.service.BankService;
+import com.kbstar.frame.BankService;
 import com.kbstar.service.BankServiceImpl;
 
 public class BankTest {

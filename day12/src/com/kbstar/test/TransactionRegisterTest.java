@@ -26,7 +26,7 @@ public class TransactionRegisterTest {
 		// get(k) test ------------------------------------
 		TransactionDTO Transaction = null;
 		try {
-			Transaction = service.get("202339944102");
+			Transaction = service.get("202331210102");
 			System.out.println(Transaction);
 		} catch (Exception e) {
 			e.printStackTrace();

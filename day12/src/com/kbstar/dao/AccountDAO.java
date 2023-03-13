@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.kbstar.dto.AccountDTO;
+import com.kbstar.dto.TransactionDTO;
 import com.kbstar.frame.DAO;
 
 public class AccountDAO implements DAO<String, AccountDTO>{
@@ -55,8 +56,30 @@ public class AccountDAO implements DAO<String, AccountDTO>{
 	//Object obj = new String();
 	@Override
 	public List<AccountDTO> search(Object obj) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		// obj가 사용하고있는 계좌를 찾아서 걔를 어레이리스트에 리턴한다
+		List<AccountDTO> list = new ArrayList<AccountDTO>();
+		Collection<AccountDTO> col = db.values();
+		
+		for (AccountDTO acc : col) {
+			//계좌중에서 id가 obj와 같은 것들만
+			if((acc.getHolder()).equals(obj)) {
+				list.add(acc);
+			}
+		}
+		return list;
 	}
+	
+//	@Override
+//	public List<TransactionDTO> select(Object obj) throws Exception {
+//		List<TransactionDTO> list = new ArrayList<TransactionDTO>();
+//		Collection<TransactionDTO> col = db.values();
+//		for (AccountDTO acc : col) {
+//			//계좌중에서 id가 obj와 같은 것들만
+//			if((acc.getHolder()).equals(obj)) {
+//				list.add(acc);
+//			}
+//		}
+//		return list;
+//	}
 
 }

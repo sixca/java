@@ -21,7 +21,11 @@ public class TransactionService implements CRUDService<String, TransactionDTO>{
 
 	@Override
 	public void register(TransactionDTO v) throws Exception {
-		transDao.insert(v);
+		try {
+			transDao.insert(v);
+		}catch(Exception e) {
+			throw new Exception("거래내역 등록이 실패 하였습니다.(EX0001)");
+		}
 	}
 
 	@Override
