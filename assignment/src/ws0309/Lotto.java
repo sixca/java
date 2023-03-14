@@ -35,6 +35,8 @@ public class Lotto {
 		while (this.winningNum.size() < 3) {
 			winningNum.add(new Random().nextInt(25) + 1);
 		}
+		System.out.println(prizeMoney);
+		System.out.println(winningNum);
 	} // prizeMoney에 랜덤금액, winningNum에 랜덤숫자 3개 지정
 
 	//입력숫자 3개와 몇개가 일치한지 check한 후 등수 리턴
