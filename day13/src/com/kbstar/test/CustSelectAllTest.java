@@ -9,13 +9,18 @@ import com.kbstar.service.CustCRUDServiceImpl;
 public class CustSelectAllTest {
 
 	public static void main(String[] args) {
-		CRUDService<String, Cust> crudService = new CustCRUDServiceImpl();
+		CRUDService<String, Cust> crudService = 
+				new CustCRUDServiceImpl();
 		List<Cust> list = null;
 		try {
 			list = crudService.get();
+			if(list.size() == 0) {
+				System.out.println("데이터가 없음");
+				return;
+			}else {
 			for (Cust obj : list) {
 				System.out.println(obj);
-				System.out.println("전체조회 성공");
+				}
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

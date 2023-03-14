@@ -30,10 +30,10 @@ public class SelectTest {
 		// SQL 전송
 		try (Connection con = DriverManager.getConnection(url, id, pwd);    //p224 자동 close
 			PreparedStatement pstmt = con.prepareStatement(selectSql);) {
-			pstmt.setString(1, "id01");
+			pstmt.setString(1, "id10");
 			
 			try(ResultSet rset = pstmt.executeQuery()){   //결과를 rset 변수에 담았쬬. id, pwd, name, age
-				rset.next();                    // 데이터 이전에 포인트를 가르키고 있어서 한칸 이동 시킨 것. 이걸 하고 데이터를 끄집어 내야 함.
+				rset.next();                    // 데이터 이전에 포인터가 있어서 한칸 이동 시킨 것. 이걸 하고 데이터를 끄집어 내야 함.
 				String db_id = rset.getString("id");
 				String db_pwd = rset.getString("pwd");
 				String name = rset.getString("name");

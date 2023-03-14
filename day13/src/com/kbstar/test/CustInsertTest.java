@@ -10,7 +10,7 @@ public class CustInsertTest {
 		CRUDService<String, Cust> crudService = 
 				new CustCRUDServiceImpl();
 		
-		Cust cust = new Cust("id21", "pwd21", "tomm", 30);
+		Cust cust = new Cust("id88", "pwd88", "tomsen", 36);
 			try {
 				crudService.register(cust);
 				System.out.println("성공");

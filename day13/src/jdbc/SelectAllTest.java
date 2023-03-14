@@ -23,7 +23,7 @@ public class SelectAllTest {
 		// Connect 접속정보
 		String id = "bank"; 
 		String pwd = "111111";
-		String url = "jdbc:oracle:thin:@172.16.21.60:1521:XE"; 
+		String url = "jdbc:oracle:thin:@172.16.20.58:1521:XE"; 
 		String selectAllSql = "SELECT * FROM cust"; 
 
 		// Statement 생성 - SQL

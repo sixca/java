@@ -28,7 +28,7 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 
 	public Connection getConnection() throws Exception { // connection은 여기 만들어둔 메서드로 계속 쓰겠다
 
-		Connection con = null; // txt로 박아놓고 불러오자 코드 수정없이 txt파일을 수정하도록!
+		Connection con = null; // txt로 박아놓고 불러오자 코드 수정없이 txt파일을 수정하도록! Properties.
 
 		Properties props = new Properties();
 		String fileName = "db_info.txt";
@@ -67,7 +67,7 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 			if(result == 0) {
 				throw new Exception("ID없음");
 			}			
-			System.out.println(result);
+			//System.out.println(result);
 		} catch (SQLException e1) {    
 			throw e1;            // 여기는 DB장애 오류가 날아가도록
 		} 
@@ -85,7 +85,7 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 			int result = pstmt.executeUpdate();
 			
 			if(result == 0) {
-				throw new Exception("없음");
+				throw new Exception("수정할 자료가 없음");
 			}		
 		} catch (SQLException e1) {   
 			throw e1;   
@@ -94,58 +94,109 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 
 	@Override
 	public Cust select(String k) throws Exception {
-		Cust cust = null; //!!
-		try (Connection con = getConnection();
-				PreparedStatement pstmt = con.prepareStatement(Sql.selectSql);) {
-				pstmt.setString(1, k);
-				
-				try(ResultSet rset = pstmt.executeQuery()){   //결과를 rset 변수에 담았쬬. id, pwd, name, age
-					rset.next();                    // 데이터 이전에 포인트를 가르키고 있어서 한칸 이동 시킨 것. 이걸 하고 데이터를 끄집어 내야 함.
-					String db_id = rset.getString("id");
-					String db_pwd = rset.getString("pwd");
-					String name = rset.getString("name");
-					int age = rset.getInt("age");
-					System.out.println(db_id + " " + db_pwd + " " + name + " " + age);
-
-				}catch(Exception e) {
-					throw e; //!!	
-				}	
-			} catch (Exception e1) {
-				throw e1; //!!
+		Cust cust = null;
+		try (Connection con = getConnection(); 
+				PreparedStatement pstmt = con.prepareStatement(Sql.selectSql); ) {
+			pstmt.setString(1, k);
+			
+			try(ResultSet rset = pstmt.executeQuery()) {
+				rset.next();
+				String id = rset.getString("id");
+				String pwd = rset.getString("pwd");
+				String name = rset.getString("name");
+				int age = rset.getInt("age");
+				cust = new Cust(id, pwd, name, age);
+			}catch(Exception e) {
+				throw e;                //데이터가 없으면 여기서 예외
 			}
-		return cust; //!!
+			
+		}catch(Exception e) {
+			throw e;
+//			e.printStackTrace();       //소프트웨어 오류는 여기 예외가되는구나 트레이스로 추적해서 오류코드, 오류위치 확인가능!
+		}
+		
+		return cust;
+		
+		
+		
+		
+		
+		
+//		Cust cust = null; //!!
+//		try (Connection con = getConnection();
+//				PreparedStatement pstmt = con.prepareStatement(Sql.selectSql);) {
+//				pstmt.setString(1, k);
+//				
+//				try(ResultSet rset = pstmt.executeQuery()){   //결과를 rset 변수에 담았쬬. id, pwd, name, age
+//					rset.next();                    // 데이터 이전에 포인트를 가르키고 있어서 한칸 이동 시킨 것. 이걸 하고 데이터를 끄집어 내야 함.
+//					String db_id = rset.getString("id");
+//					String db_pwd = rset.getString("pwd");
+//					String name = rset.getString("name");
+//					int age = rset.getInt("age");
+//					System.out.println(db_id + " " + db_pwd + " " + name + " " + age);
+//
+//				}catch(Exception e) {
+//					throw e; //!!	
+//				}	
+//			} catch (Exception e1) {
+//				throw e1; //!!
+//			}
+//		return cust; //!!
 		
 	}
 
 	@Override
 	public List<Cust> selectAll() throws Exception {
 		List<Cust> list = new ArrayList<Cust>();
-		try (Connection con = getConnection();
-				PreparedStatement pstmt = 
-				con.prepareStatement(Sql.selectAllSql);) {
-				//pstmt.setString(1, k);  !!
-				
-				try(ResultSet rset = pstmt.executeQuery()){   //결과를 rset 변수에 담았쬬. id, pwd, name, age
-					while(rset.next()) {
-					Cust cust = null;	
-					String db_id = rset.getString("id");
-					String db_pwd = rset.getString("pwd");
+		try(Connection con = getConnection(); 
+				PreparedStatement pstmt = con.prepareStatement(Sql.selectAllSql); ){
+			try(ResultSet rset = pstmt.executeQuery();) {
+				while(rset.next()) {
+					Cust cust = null;
+					String id = rset.getString("id");
+					String pwd = rset.getString("pwd");
 					String name = rset.getString("name");
 					int age = rset.getInt("age");
-					cust = new Cust(db_id, db_pwd, name, age);
+					cust = new Cust(id, pwd, name, age);
 					list.add(cust);
 				}
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}	
-				if(list.size() == 0) {     //!!
-					throw new Exception("없음");
-				}
-			} catch (Exception e1) {
-				throw e1; //!!
+			}catch(Exception e) {
+				throw e;    //데이터가 없을 때
+			}
+		}catch(Exception e) {
+			throw e;        //시스템 장애일 때
 		}
 		
 		return list;
+		
+		
+//		List<Cust> list = new ArrayList<Cust>();
+//		try (Connection con = getConnection();
+//				PreparedStatement pstmt = 
+//				con.prepareStatement(Sql.selectAllSql);) {
+//				//pstmt.setString(1, k);  !!
+//				
+//				try(ResultSet rset = pstmt.executeQuery()){   //결과를 rset 변수에 담았쬬. id, pwd, name, age
+//					while(rset.next()) {
+//					Cust cust = null;	
+//					String db_id = rset.getString("id");
+//					String db_pwd = rset.getString("pwd");
+//					String name = rset.getString("name");
+//					int age = rset.getInt("age");
+//					cust = new Cust(db_id, db_pwd, name, age);
+//					list.add(cust);
+//				}
+//				}catch(SQLException e) {
+//					e.printStackTrace();
+//				}	
+//				if(list.size() == 0) {     //!!
+//					throw new Exception("없음");
+//				}
+//			} catch (Exception e1) {
+//				throw e1; //!!
+//		}
+//		
+//		return list;
 	}
 
 	@Override
