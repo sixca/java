@@ -14,6 +14,16 @@ public class Sql {
 	public static String itemUpdateSql = "UPDATE item SET name=?,price=?, rate=? WHERE id=?";
 	public static String itemSelectSql = "SELECT * FROM item WHERE id=?";
 	public static String itemSelectAllSql = "SELECT * FROM item";
+
+	//Cart DML
+	public static String CartDeleteSql = "DELETE FROM cart WHERE id =?";
+	public static String CartInsertSql = "INSERT INTO cart VALUES (?,?,?,?,SYSDATE)";
+	public static String CartUpdateSql = "UPDATE cart SET user_id=?,item_id=?,cnt=? WHERE id=?";
+	public static String CartSelectSql = "SELECT * FROM cart WHERE id=?";
+	public static String CartSelectAllSql = "SELECT * FROM cart";
+	
+	
+	
 }
 
 
