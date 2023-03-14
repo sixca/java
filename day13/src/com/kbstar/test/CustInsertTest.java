@@ -6,6 +6,7 @@ import com.kbstar.service.CustCRUDServiceImpl;
 
 public class CustInsertTest {
 
+
 	public static void main(String[] args) {
 		CRUDService<String, Cust> crudService = 
 				new CustCRUDServiceImpl();
