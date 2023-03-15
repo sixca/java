@@ -78,7 +78,7 @@ public class App {
 						} else if (cmn.equals("a")) { // 계좌목록
 							System.out.println("Select Account...");
 							List<AccountDTO> list = null;
-							service.getAllAccount(user.getId());
+							list = service.getAllAccount(user.getId());
 							for (AccountDTO accList : list) {
 								System.out.println(accList);
 							}

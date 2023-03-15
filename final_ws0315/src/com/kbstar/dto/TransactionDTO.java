@@ -1,5 +1,7 @@
 package com.kbstar.dto;
 
+import java.util.Date;
+
 public class TransactionDTO {
 	private String id;
 	private String date;      
