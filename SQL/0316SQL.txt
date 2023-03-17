@@ -1,0 +1,43 @@
+-- 실습 3-1
+ALTER USER SCOTT
+IDENTIFIED BY tiger   -- 비밀번호지
+ACCOUNT UNLOCK; --SYSTEM ACCOUNT 락해제
+
+-- 실습 3-2
+CONN scott/tiger;  --CONNECT ID/PW
+
+-- 실습 3-3
+DESC EMP;    --DBEAVER 에서는 실행이 안 된데요. 오라클 전용 키워드
+
+-- 실습 3-4
+EXIT          -- WHAT IS IT?????????????
+
+-- 실습 3-5
+SQLPLUS scott/tiger     
+
+
+SELECT *
+FROM emp;
+
+SELECT ENAME
+	, b.DEPTNO --b에 있는 DEPTNO 조회 
+FROM emp a -- TABLE alias A 
+	, dept b
+;
+
+SELECT * FROM emp;
+
+--임시테이블 FROM dual 사용
+SELECT 100 + 5, 10-3, 30*2, 10/3 FROM dual;  --사칙연산
+SELECT dbms_random.value() * 100 FROM dual;  -- dbms_random은 0~0.99999~ 범위의 무작위수를 생성
+
+SELECT ENAME FROM EMP AS employee;  -- 테이블명에는 별칭 사용 불가 alias. 컬럼명에만 별칭사용
+SELECT ENAME AS "employee 뿌뿌뿌" FROM EMP employee; -- 별칭
+
+SELECT * FROM EMP ORDER BY SAL;
+SELECT * FROM EMP ORDER BY SAL DESC;
+SELECT * FROM EMP ORDER BY DEPTNO ASC, SAL DESC;
+
+SELECT * FROM nls_database_parameters;
+
+
