@@ -21,7 +21,7 @@ public class CustDaoImpl implements DAO<String, String, Cust> {
 			e.printStackTrace();
 			return;
 		}
-		System.out.println("Driver Loading 성공");
+		//System.out.println("Driver Loading 성공");
 	}
 
 	@Override

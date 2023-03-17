@@ -42,6 +42,5 @@ public class Cust {
 		return "Cust [id=" + id + ", pwd=" + pwd + ", name=" + name + ", age=" + age + "]";
 	}
 	
-	
-	
+
 }

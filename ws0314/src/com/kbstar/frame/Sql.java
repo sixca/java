@@ -1,3 +1,4 @@
+
 package com.kbstar.frame;
 
 public class Sql {
@@ -21,10 +22,7 @@ public class Sql {
 	public static String CartUpdateSql = "UPDATE cart SET user_id=?,item_id=?,cnt=? WHERE id=?";
 	public static String CartSelectSql = "SELECT * FROM cart WHERE id=?";
 	public static String CartSelectAllSql = "SELECT * FROM cart";
-	
+	public static String mycartSelectAllSql = "SELECT * FROM cart WHERE user_id=?";
 	
 	
 }
-
-
-//static으로 Sql문 인터페이스를 만들어서 하나로 묶어서 class.sql 이렇게 사용하자
